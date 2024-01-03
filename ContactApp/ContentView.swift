@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var isShowingNewContact = false
+    
     var body: some View {
         NavigationStack {
             List {
@@ -22,9 +25,24 @@ struct ContentView: View {
                         
                         ContactRowView()
                     }
-                    
-                } .navigationTitle("Contacts")
+                }
             }
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button {
+                        isShowingNewContact.toggle()
+                    } label: {
+                        Image(systemName: "plus")
+                            .font(.title2)
+                    }
+                }
+            }
+            .sheet(isPresented: $isShowingNewContact) {
+                NavigationStack {
+                    CreateContactView()
+                }
+            }
+            .navigationTitle("Contacts")
         }
     }
 }

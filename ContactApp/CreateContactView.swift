@@ -30,7 +30,7 @@ struct CreateContactView: View {
             }
             
             Section("Notes") {
-                TextField("", text: .constant("Slava Ukraine"), axis: .vertical)
+                TextField("Slava Ukraine", text: .constant(""), axis: .vertical)
             }
         }
         .navigationTitle("Name Here")
