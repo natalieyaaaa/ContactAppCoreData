@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ContactRowView: View {
     
-    let contact: Contact
+    @Environment(\.managedObjectContext) private var moc
+    
+    @ObservedObject var contact: Contact
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -26,15 +28,30 @@ struct ContactRowView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .overlay(alignment: .topTrailing) {
             Button {
-                // favourite
+                toggleFave()
             } label: {
                 Image(systemName: "star")
                     .font(.title3)
                     .symbolVariant(.fill)
-                    .foregroundStyle(.gray.opacity(0.3))
+                    .foregroundStyle(contact.isFavourite ? .yellow : .gray.opacity(0.3))
             }
             .buttonStyle(.plain)
-        }    }
+        }
+    }
+}
+
+extension ContactRowView {
+    
+    private func toggleFave() {
+        contact.isFavourite.toggle()
+        do {
+            if moc.hasChanges {
+               try moc.save()
+            }
+        } catch {
+            print("Error saving toggled favourite ")
+        }
+    }
 }
 
 //#Preview {
