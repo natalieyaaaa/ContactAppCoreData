@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct ContactRowView: View {
+    
+    let contact: Contact
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             
-            Text("Name")
+            Text("\(contact.isBirthday ? "🎈" : "")\(contact.name)")
                 .font(.system(size: 26, design: .rounded)).bold()
             
-            Text("Email")
+            Text(contact.email)
                 .font(.callout.bold())
             
-            Text("Phone Number")
+            Text(contact.phoneNumber)
                 .font(.callout.bold())
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -34,6 +37,6 @@ struct ContactRowView: View {
         }    }
 }
 
-#Preview {
-    ContactRowView()
-}
+//#Preview {
+//    ContactRowView()
+//}

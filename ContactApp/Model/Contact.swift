@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-final class Contact: NSManagedObject {
+final class Contact: NSManagedObject, Identifiable {
     
     @NSManaged var dob: Date
     @NSManaged var email: String
@@ -16,6 +16,10 @@ final class Contact: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var notes: String
     @NSManaged var phoneNumber: String
+    
+    var isBirthday: Bool {
+        Calendar.current.isDateInToday(dob)
+    }
     
     override func awakeFromInsert() {
         super.awakeFromInsert()

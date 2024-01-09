@@ -19,7 +19,7 @@ struct ContentView: View {
         NavigationStack {
             List {
                 
-                ForEach((0...10), id: \.self) { item in
+                ForEach(contacts) { contact in
                     
                     ZStack(alignment: .leading) {
                         NavigationLink(destination: ContactDetailView()){
@@ -27,7 +27,7 @@ struct ContentView: View {
                         }
                         .opacity(0)
                         
-                        ContactRowView()
+                        ContactRowView(contact: contact)
                     }
                 }
             }
