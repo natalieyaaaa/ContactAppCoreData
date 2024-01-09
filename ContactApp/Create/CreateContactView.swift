@@ -8,36 +8,44 @@
 import SwiftUI
 
 struct CreateContactView: View {
+    
     @Environment(\.dismiss) private var dismiss
+    @ObservedObject var vm: EditContactViewModel
+    
     var body: some View {
         List {
             
             Section("General") {
                 
-                TextField("Name", text: .constant(""))
+                TextField("Name", text: $vm.contact.name)
                     .keyboardType(.namePhonePad)
                 
-                TextField("Email", text: .constant(""))
+                TextField("Email", text: $vm.contact.email)
                     .keyboardType(.emailAddress)
                 
-                TextField("Phone Number", text: .constant(""))
+                TextField("Phone Number", text: $vm.contact.phoneNumber)
                     .keyboardType(.phonePad)
                 
-                DatePicker("Birthday", selection: .constant(.now), displayedComponents: [.date])
+                DatePicker("Birthday", selection: $vm.contact.dob, displayedComponents: [.date])
                     .datePickerStyle(.compact)
                 
-                Toggle("Favourite", isOn: .constant(true))
+                Toggle("Favourite", isOn: $vm.contact.isFavourite)
             }
             
             Section("Notes") {
-                TextField("Slava Ukraine", text: .constant(""), axis: .vertical)
+                TextField("Slava Ukraine", text: $vm.contact.notes, axis: .vertical)
             }
         }
         .navigationTitle("Name Here")
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
                 Button("Done") {
-                    dismiss()
+                    do {
+                        try vm.save()
+                        dismiss()
+                    } catch {
+                        print("Error saving edited data")
+                    }
                 }
             }
             ToolbarItem(placement: .navigationBarLeading) {
@@ -51,6 +59,6 @@ struct CreateContactView: View {
 
 #Preview {
     NavigationStack {
-        CreateContactView()
+        CreateContactView(vm: .init(provider: .shared))
     }
 }

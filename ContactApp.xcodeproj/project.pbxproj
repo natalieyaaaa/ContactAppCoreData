@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		202658AC2B471B260051D547 /* EditContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202658AB2B471B260051D547 /* EditContactViewModel.swift */; };
 		20C4D82C2B44B9DE006DF61D /* ContactAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C4D82B2B44B9DE006DF61D /* ContactAppApp.swift */; };
 		20C4D82E2B44B9DE006DF61D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C4D82D2B44B9DE006DF61D /* ContentView.swift */; };
 		20C4D8302B44B9DF006DF61D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20C4D82F2B44B9DF006DF61D /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		202658AB2B471B260051D547 /* EditContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactViewModel.swift; sourceTree = "<group>"; };
 		20C4D8282B44B9DE006DF61D /* ContactApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20C4D82B2B44B9DE006DF61D /* ContactAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAppApp.swift; sourceTree = "<group>"; };
 		20C4D82D2B44B9DE006DF61D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +46,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		202658AA2B471B080051D547 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				20C4DCCD2B4614E4002E7BE4 /* CreateContactView.swift */,
+				202658AB2B471B260051D547 /* EditContactViewModel.swift */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
 		20C4D81F2B44B9DD006DF61D = {
 			isa = PBXGroup;
 			children = (
@@ -63,10 +74,10 @@
 		20C4D82A2B44B9DE006DF61D /* ContactApp */ = {
 			isa = PBXGroup;
 			children = (
+				202658AA2B471B080051D547 /* Create */,
 				20C4D83F2B44BE5A006DF61D /* Provider */,
 				20C4D82B2B44B9DE006DF61D /* ContactAppApp.swift */,
 				20C4D82D2B44B9DE006DF61D /* ContentView.swift */,
-				20C4DCCD2B4614E4002E7BE4 /* CreateContactView.swift */,
 				20C4D8422B44C351006DF61D /* ContactRowView.swift */,
 				20C4DCCB2B4612DA002E7BE4 /* ContactDetailView.swift */,
 				20C4D83E2B44BC37006DF61D /* Model */,
@@ -174,6 +185,7 @@
 				20C4D83D2B44BBFD006DF61D /* Contact.swift in Sources */,
 				20C4D8412B44BE79006DF61D /* ContactsProvider.swift in Sources */,
 				20C4DCCC2B4612DA002E7BE4 /* ContactDetailView.swift in Sources */,
+				202658AC2B471B260051D547 /* EditContactViewModel.swift in Sources */,
 				20C4D83B2B44BA2E006DF61D /* ContactsDataModel.xcdatamodeld in Sources */,
 				20C4D82E2B44B9DE006DF61D /* ContentView.swift in Sources */,
 				20C4DCCE2B4614E4002E7BE4 /* CreateContactView.swift in Sources */,
