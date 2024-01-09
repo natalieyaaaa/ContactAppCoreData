@@ -23,3 +23,15 @@ final class Contact: NSManagedObject {
         setPrimitiveValue(false, forKey: "isFavourite")
     }
 }
+
+extension Contact {
+    
+    private static var contactsFetchRequest: NSFetchRequest<Contact> {
+        NSFetchRequest(entityName: "Contact")
+    }
+    static func all() -> NSFetchRequest<Contact> {
+        let request: NSFetchRequest<Contact> = contactsFetchRequest
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Contact.name, ascending: true)]
+        return request
+    }
+}

@@ -11,6 +11,8 @@ struct ContentView: View {
     
     @State private var isShowingNewContact = false
     
+    @FetchRequest(fetchRequest: Contact.all()) private var contacts
+    
     var provider = ContactsProvider.shared
     
     var body: some View {
