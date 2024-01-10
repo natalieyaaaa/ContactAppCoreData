@@ -22,7 +22,7 @@ struct ContentView: View {
                 ForEach(contacts) { contact in
                     
                     ZStack(alignment: .leading) {
-                        NavigationLink(destination: ContactDetailView()){
+                        NavigationLink(destination: ContactDetailView(contact: contact)){
                             EmptyView()
                         }
                         .opacity(0)
